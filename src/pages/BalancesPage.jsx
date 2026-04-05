@@ -101,9 +101,7 @@ export default function BalancesPage() {
                     </div>
                   </div>
                   
-                  <div style={{ background: bgColor, width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon size={20} color={iconColor} />
-                  </div>
+                  
                 </div>
 
                 <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
