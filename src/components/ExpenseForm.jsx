@@ -92,11 +92,7 @@ export default function ExpenseForm({ users, onExpenseAdded }) {
 
   return (
     <div className="card" style={{ padding: '0', overflow: 'hidden' }}>
-      <div style={{ padding: '1.5rem', background: 'linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%)', color: 'white' }}>
-        <h2 style={{ color: 'white', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Save size={24} /> New Expense Data
-        </h2>
-      </div>
+     
 
       <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) minmax(300px, 1fr)', gap: '2rem', padding: '2rem' }}>
         
@@ -105,32 +101,33 @@ export default function ExpenseForm({ users, onExpenseAdded }) {
           {error && <div className="alert">{error}</div>}
           
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Type size={16}/> Title</label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}> Title</label>
             <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="e.g. Netflix Subscription" />
           </div>
           
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><FileText size={16}/> Description</label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}> Description</label>
             <input required value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} placeholder="e.g. Monthly family plan" />
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><IndianRupee size={16}/> Amount</label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}> Amount</label>
               <input required type="number" min="1" step="0.01" value={formData.totalAmount} onChange={e => setFormData({...formData, totalAmount: e.target.value})} placeholder="0.00" />
-            </div>
+            </div>  
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Users size={16}/> Split Type</label>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}> Split Type</label>
               <select value={formData.splitType} onChange={e => setFormData({...formData, splitType: e.target.value})} style={{ cursor: 'pointer' }}>
                 <option value="EQUAL">Equally</option>
                 <option value="UNEQUAL">Custom (Unequal)</option>
               </select>
             </div>
           </div>
-          
           <div className="form-group" style={{ marginBottom: 0 }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Users size={16}/> Who Paid?</label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}> Who Paid?</label>
             <select required value={formData.payer} onChange={e => setFormData({...formData, payer: e.target.value})} style={{ cursor: 'pointer' }}>
               <option value="" disabled>Select Payer</option>
               {users.map(u => <option key={u._id} value={u._id}>{u.name}</option>)}

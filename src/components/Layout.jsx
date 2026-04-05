@@ -29,10 +29,25 @@ export default function Layout() {
         api.getBalances(),
         api.getSettlements()
       ]);
-      setUsers(uRes.data || []);
-      setExpenses((eRes.data || []).filter(e => !e.isDeleted));
-      setBalances(bRes.data[0] === 'No balances found' ? [] : bRes.data);
-      setSettlements(sRes.data[0] === 'All balances are settled' ? [] : sRes.data);
+      const usersData = uRes.data?.data || [];
+      const expensesData = eRes.data?.data || [];
+      const balancesData = bRes.data?.data || [];
+      const settlementsData = sRes.data?.data || [];
+
+      setUsers(usersData);
+      setExpenses(expensesData.filter(e => !e.isDeleted));
+      
+      setBalances(
+        balancesData[0] === 'No balances found' 
+          ? [] 
+          : balancesData.map(b => typeof b === 'string' ? b : `${b.userFromName} owes ${b.userToName}: ₹${b.amount}`)
+      );
+      
+      setSettlements(
+        settlementsData[0] === 'All balances are settled' 
+          ? [] 
+          : settlementsData.map(s => typeof s === 'string' ? s : `${s.userFromName} owes ${s.userToName}: ₹${s.amount}`)
+      );
     } catch (err) {
       console.error("Failed to fetch data:", err);
     }
@@ -72,9 +87,7 @@ export default function Layout() {
           <Typography variant="h5" color="primary" sx={{ fontWeight: 800 }}>
             Smart Split
           </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Fair & Easy Expenses
-          </Typography>
+          
         </Box>
         <List sx={{ px: 2 }}>
           {navItems.map((item) => {

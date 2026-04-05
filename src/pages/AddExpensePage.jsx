@@ -16,7 +16,6 @@ export default function AddExpensePage() {
     <Box sx={{ maxWidth: 800, mx: 'auto' }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" fontWeight={800} color="text.primary">Add Expense</Typography>
-        <Typography variant="body1" color="text.secondary">Record a new transaction and let Smart Split handle the math.</Typography>
       </Box>
 
       {users && users.length > 0 ? (

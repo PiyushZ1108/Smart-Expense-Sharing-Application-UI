@@ -40,7 +40,6 @@ export default function SettlementsPage() {
           <h1 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
             <RefreshCw className="text-primary" size={32} /> Optimized Settlements
           </h1>
-          <p className="expense-meta" style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>The smartest sequence of transfers to resolve all group debts instantly.</p>
         </div>
       </div>
 
@@ -62,7 +61,7 @@ export default function SettlementsPage() {
                   <th style={{ padding: '1rem 1.5rem', width: '40px' }}></th>
                   <th style={{ padding: '1rem 1.5rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em' }}>Receiver</th>
                   <th style={{ padding: '1rem 1.5rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em' }}>Amount</th>
-                  <th style={{ padding: '1rem 1.5rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', textAlign: 'right' }}>Action</th>
+                  {/* <th style={{ padding: '1rem 1.5rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', textAlign: 'right' }}>Action</th> */}
                 </tr>
               </thead>
               <tbody style={{ background: 'white' }}>
@@ -127,7 +126,7 @@ export default function SettlementsPage() {
                       </td>
                       
                       {/* Action Column */}
-                      <td style={{ padding: '1.25rem 1.5rem', textAlign: 'right' }}>
+                      {/* <td style={{ padding: '1.25rem 1.5rem', textAlign: 'right' }}>
                         {isSettled ? (
                           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#dcfce7', color: '#166534', padding: '0.35rem 0.75rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 600 }}>
                             <Check size={14} strokeWidth={3} /> Paid
@@ -141,7 +140,7 @@ export default function SettlementsPage() {
                             Mark Paid
                           </button>
                         )}
-                      </td>
+                      </td> */}
                     </tr>
                   );
                 })}

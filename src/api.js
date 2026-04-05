@@ -1,26 +1,28 @@
-const API_BASE = 'http://localhost:3000';
+import axios from 'axios';
+
+// Base URL for the backend API. You can set REACT_APP_API_BASE in a .env file.
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000';
+
+// Create an Axios instance with the base URL.
+const apiClient = axios.create({
+  baseURL: API_BASE,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 export const api = {
   // Users
-  getUsers: () => fetch(`${API_BASE}/users`).then(res => res.json()),
-  createUser: (data) => fetch(`${API_BASE}/users`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).then(res => res.json()),
+  getUsers: () => apiClient.get('/users'),
+  createUser: (data) => apiClient.post('/users', data),
 
   // Expenses
-  getExpenses: () => fetch(`${API_BASE}/expenses`).then(res => res.json()),
-  createExpense: (data) => fetch(`${API_BASE}/expenses/create`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).then(res => res.json()),
-  deleteExpense: (id) => fetch(`${API_BASE}/expenses/${id}`, {
-    method: 'DELETE'
-  }).then(res => res.json()),
+  getExpenses: () => apiClient.get('/expenses/all'),
+  createExpense: (data) => apiClient.post('/expenses/create', data),
+  deleteExpense: (id) => apiClient.delete(`/expenses/${id}`),
 
   // Balances
-  getBalances: () => fetch(`${API_BASE}/expenses/balances`).then(res => res.json()),
-  getSettlements: () => fetch(`${API_BASE}/expenses/settlements`).then(res => res.json()),
+  getBalances: () => apiClient.get('/expenses/balances'),
+  getSettlements: () => apiClient.get('/expenses/settlements'),
 };
+

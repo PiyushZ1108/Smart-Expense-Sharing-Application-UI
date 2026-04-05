@@ -7,17 +7,16 @@ export default function UsersPage() {
   const { users, fetchData } = useOutletContext();
 
   return (
-    <Box sx={{ maxWidth: 600, mx: 'auto' }}>
+    <Box sx={{ mx: 'auto', display: 'flex', flexDirection: 'column', gap: 2 }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" fontWeight={800} color="text.primary">Manage Users</Typography>
-        <Typography variant="body1" color="text.secondary">Add new participants to the group before splitting expenses.</Typography>
       </Box>
-      
-      <Box sx={{ mb: 4 }}>
+      <Box display="flex" flexDirection="row" gap={2}>
+      <Box sx={{ mb: 4, width: '50%' }}>
         <UserForm onUserAdded={fetchData} />
       </Box>
 
-      <Card elevation={0} sx={{ border: '1px solid rgba(0,0,0,0.08)' }}>
+      <Card elevation={0} sx={{ border: '1px solid rgba(0,0,0,0.08)', width: '50%' }}>
         <Box sx={{ p: 2, borderBottom: '1px solid rgba(0,0,0,0.08)', bgcolor: '#f8fafc' }}>
           <Typography variant="h6" fontWeight={600}>Group Members</Typography>
         </Box>
@@ -48,6 +47,7 @@ export default function UsersPage() {
           </List>
         )}
       </Card>
+      </Box>
     </Box>
   );
 }

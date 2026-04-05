@@ -24,7 +24,6 @@ export default function DashboardPage() {
       <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Box>
           <Typography variant="h4" fontWeight={800} color="text.primary">Overview</Typography>
-          <Typography variant="body1" color="text.secondary">A bird's eye view of your group's current financial state.</Typography>
         </Box>
         <Button 
           variant="contained" 

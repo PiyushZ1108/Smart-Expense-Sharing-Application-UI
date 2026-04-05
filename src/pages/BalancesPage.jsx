@@ -56,7 +56,6 @@ export default function BalancesPage() {
         <h1 style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
           <Wallet className="text-primary" size={32} /> Current Balances
         </h1>
-        <p className="expense-meta" style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>A high-level summary of everyone's financial standing in the group.</p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>

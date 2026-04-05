@@ -24,7 +24,6 @@ export default function ExpensesPage() {
       <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Box>
           <Typography variant="h4" fontWeight={800} color="text.primary">All Expenses</Typography>
-          <Typography variant="body1" color="text.secondary">View all transactions added to the group.</Typography>
         </Box>
         <Button 
           variant="contained" 
