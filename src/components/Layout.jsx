@@ -85,7 +85,7 @@ export default function Layout() {
       >
         <Box sx={{ p: 3, textAlign: 'center' }}>
           <Typography variant="h5" color="primary" sx={{ fontWeight: 800 }}>
-            Smart Split
+            Smart Expense Sharing Application
           </Typography>
           
         </Box>
